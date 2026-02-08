@@ -1,0 +1,234 @@
+/* =========================================
+   BASE STYLES (Do not modify this section)
+   ========================================= */
+:root {
+    --primary: #3b82f6;
+    --dark: #1e293b;
+    --light: #f8fafc;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--dark);
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--light);
+}
+
+h1 { border-bottom: 2px solid var(--primary); padding-bottom: 10px; margin-bottom: 30px; }
+section { margin-bottom: 50px; }
+
+.concept-card {
+    background: white;
+    border-left: 5px solid var(--primary);
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+code { background-color: #eee; padding: 2px 5px; border-radius: 4px; color: #d63384; font-size: 0.9em; }
+
+.task-container {
+    background: #fff;
+    border: 2px dashed #cbd5e1;
+    padding: 25px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.task-badge {
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    background: var(--dark);
+    color: white;
+    padding: 5px 15px;
+    font-weight: bold;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+/* Helper for Bootstrap Visuals */
+.demo-box {
+    background-color: #e0e7ff;
+    border: 1px solid #6366f1;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    color: #312e81;
+    margin-bottom: 10px;
+}
+
+/* =========================================
+   STUDENT WORKSPACE
+   Complete the TODOs below.
+   ========================================= */
+
+/* --- TASK 1: RESPONSIVE DESIGN & BOOTSTRAP --- */
+
+/* 1.1 Custom Media Query */
+.mobile-alert {
+    display: none; /* Hidden by default on Desktop */
+    background-color: #fee2e2;
+    color: #b91c1c;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #f87171;
+    margin-bottom: 10px;
+}
+
+/* TODO 1.1: Write a Media Query for Mobile */
+/* For mobile screens that have max-width 576px. Change the display property so the mobile-alert becomes visible. */
+@media (max-width: 576px) {
+    .mobile-alert { display: block; }
+}
+
+
+/* 1.2 Flexbox Responsive Menu */
+.nav-menu {
+    list-style: none; padding: 0; margin: 0;
+    background-color: var(--dark);
+    display: flex; /* Flex row by default */
+    justify-content: space-around;
+}
+.nav-menu li a { display: block; padding: 15px; color: white; text-decoration: none; }
+
+/* TODO 1.2: Stack Menu Vertically on Mobile */
+/* Inside a media query (max-width: 600px):
+   1. Flex direction should change when device is phone.
+   2. Now the vertical stacking will work, but all the different boxes mix into one another. 
+   Target appropriate elenment and add a border to show each option as distinct.
+*/
+
+@media (max-width: 600px) {
+    .nav-menu {
+        flex-direction: column; 
+    }
+    .nav-menu li {
+        border-bottom: 1px solid #475569; 
+    }
+}
+
+/* 1.5 Device Breakpoints (NEW) */
+.device-box {
+    background-color: #e2e8f0; /* Default (Mobile) */
+    padding: 20px;
+    text-align: center;
+    border: 2px solid #94a3b8;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #475569;
+}
+
+/* TODO 1.5: Tablet & Desktop Breakpoints */
+/* 1. Create a media query for Tablet (min-width: 768px). 
+      Inside it, change .device-box background-color to yellow */
+@media (min-width: 768px) {
+    .device-box { background-color: yellow; }
+}
+
+/* 2. Create a media query for Desktop (min-width: 992px). 
+      Inside it, change .device-box background-color to green */
+@media (min-width: 992px) {
+    .device-box { background-color: green; }
+}
+/* 1.6 Screen Orientation */
+.landscape-box {
+    background-color: #ffddd7;
+    color: #881337;
+    padding: 15px;
+    text-align: center;
+    border: 2px dashed #fb7185;
+    display: none; /* Hidden by default (Portrait) */
+    font-weight: bold;
+}
+
+/* TODO 1.6: Orientation Media Query */
+/* Write a media query for (orientation: landscape).
+   Inside it, change display property to make it visible */
+@media (orientation: landscape) {
+    .landscape-box { display: block; }
+}
+
+
+/* --- TASK 2: ACCESSIBILITY --- */
+
+.btn-accessible {
+    /* TODO 2.1: Fix Contrast */
+    /* Current: #ccc background with white text fails WCAG (Web Content Accessibility Guidelines). */
+    /* Change background-color to a darker blue (e.g., #0d6efd) */
+    background-color: #0d6efd; 
+    
+    color: white; border: none; padding: 10px 20px;
+    font-size: 1rem; cursor: pointer; border-radius: 4px;
+}
+
+/* TODO 2.2: Add Focus State */
+/* Target .btn-accessible using pseudo-class */
+/* Add outline and outline-offset - This helps keyboard users see where they are. */
+.btn-accessible:focus {
+    outline: 2px solid #0d6efd;
+    outline-offset: 2px;
+}
+
+
+/* --- TASK 3: ANIMATION --- */
+
+/* 3.1 Hover Transition */
+.anim-card {
+    background: white; border: 1px solid #ddd; padding: 20px;
+    width: 150px; text-align: center; cursor: pointer;
+    
+    /* TODO 3.1: Add Transition */
+    /* Add 'transition: transform 0.3s ease;' */
+    transition: transform 0.3s ease;
+}
+
+
+/* TODO 3.1 (Cont): Add Transform to .anim-card on Hover */
+/* Add 'transform: scale(1.1);' */
+.anim-card:hover {
+    transform: scale(1.1);
+}
+
+
+/* 3.2 Loading Spinner Keyframes */
+.spinner {
+    width: 40px; height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--primary);
+    border-radius: 50%;
+}
+
+/* TODO 3.2: Define Keyframes */
+/* Create @keyframes named 'spin' */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+/* 0% { transform: rotate(0deg); } ->  100% { transform:rotate(360deg); }*/
+
+/* TODO 3.3: Apply Animation */
+/* Target .spinner class above (or write a new rule) */
+/* Add 'animation: spin 1s linear infinite;' */
+.spinner {
+    animation: spin 1s linear infinite;
+}
+
+/* TODO 3.4: Pulse Animation */
+.pulse-circle {
+    width: 30px; height: 30px; background-color: red; border-radius: 50%;
+}
+/* Define @keyframes named 'pulse' that changes opacity from 1 to 0.5 */
+/* Apply it to .pulse-circle with 1s duration, infinite alternate */
+@keyframes pulse {
+    0% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+.pulse-circle {
+    animation: pulse 1s infinite alternate;
+}
